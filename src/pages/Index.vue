@@ -24,14 +24,14 @@
             v-for="edge in $page.posts.edges"
             :key="edge.node.id"
           >
-            <a href="/post">
+            <g-link :to="'/post/' + edge.node.id">
               <h2 class="post-title">
                 {{ edge.node.title }}
               </h2>
               <!-- <h3 class="post-subtitle">
                 Problems look mighty small from 150 miles up
               </h3> -->
-            </a>
+            </g-link>
             <p class="post-meta">
               {{ edge.node.content }}
               <a href="#">yuqi</a>
@@ -39,7 +39,7 @@
             </p>
             <p>
               <span v-for="tag in edge.node.tags" :key="tag.id">
-                <a href="">{{ tag.title }}</a>
+                <g-link :to="'/tag/' + tag.id">{{ tag.title }}</g-link>
                 &nbsp;&nbsp;&nbsp;
               </span>
             </p>
